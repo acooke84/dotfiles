@@ -8,22 +8,21 @@ function M.setup()
 
   local dashboard = require('alpha.themes.dashboard')
   dashboard.section.header.val = {
-    [[        /\          /\          /\       ]],
-    [[     /\//\\/\    /\//\\/\    /\//\\/\    ]],
-    [[  /\//\\\///\\/\//\\\///\\/\//\\\///\\/\ ]],
-    [[ //\\\//\/\\///\\\//\/\\///\\\//\/\\///\\]],
-    [[ \\//\/                            \/\\//]],
-    [[  \/                                  \/ ]],
-    [[  /\                                  /\ ]],
-    [[ //\\  Neovim IDE with LSP and DAP   //\\]],
-    [[ \\//                                \\//]],
-    [[  \/                                  \/ ]],
-    [[  /\                                  /\ ]],
-    [[ //\\/\                            /\//\\]],
-    [[ \\///\\/\//\\\///\\/\//\\\///\\/\//\\\//]],
-    [[  \/\\///\\\//\/\\///\\\//\/\\///\\\//\/ ]],
-    [[      \/\\//\/    \/\\//\/    \/\\//\/   ]],
-    [[         \/          \/          \/      ]],
+    "                                                     ",
+    "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
+    "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
+    "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
+    "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+    "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+    "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+    "                                                     ",
+  }
+
+  dashboard.section.buttons.val = {
+    dashboard.button( "e", "  > New file" , ":ene <BAR> startinsert <CR>"),
+    dashboard.button( "r", "  > Recent"   , ":Telescope oldfiles<CR>"),
+    dashboard.button( "s", "  > Settings" , ":e $MYVIMRC<CR>"),
+    dashboard.button( "q", "  > Quit NVIM", ":qa<CR>"),
   }
 
   local function footer()
@@ -54,7 +53,7 @@ function M.setup()
   dashboard.section.footer.opts.hl = "Type"
   dashboard.section.header.opts.hl = "Include"
   dashboard.section.buttons.opts.hl = "Keyword"
-
+  dashboard.section.buttons.opts.hl_shortcut = "Type"
   dashboard.opts.opts.noautocmd = true
   alpha.setup(dashboard.opts)
 end

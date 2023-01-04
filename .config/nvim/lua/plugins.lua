@@ -48,7 +48,7 @@ function M.setup()
     use { 
       'sainnhe/gruvbox-material',
       config = function()
-	vim.cmd 'colorscheme gruvbox-material'
+	      vim.cmd 'colorscheme gruvbox-material'
       end,
       enable = true,
     }
@@ -57,22 +57,58 @@ function M.setup()
     use {
       'kyazdani42/nvim-web-devicons',
       config = function()
-	require('nvim-web-devicons').setup { default = true }
+	      require('nvim-web-devicons').setup { default = true }
       end,
     }
 
     use {
       'goolord/alpha-nvim',
       config = function()
-	require('config.alpha').setup()
+        require('config.alpha').setup()
       end
+    }
+
+    use {
+      '~/Workspace/stabline.nvim',
+      config = function()
+        require('stabline').setup()
+      end,
+      disable = true,
+    }
+    
+    use {
+      'nvim-lualine/lualine.nvim',
+      config = function()
+        require('config.lualine').setup()
+      end,
+      disable = false,
+    }
+
+    use {
+      'akinsho/bufferline.nvim',
+      config = function()
+        require('config.bufferline').setup()
+      end,
+      branch = "main",
+      event = "BufWinEnter",
+      disable = false,
     }
 
     -- Telescope
     use {
       'nvim-telescope/telescope.nvim',
       config = function()
-	require('config.telescope').setup()
+	      require('config.telescope').setup()
+      end
+    }
+
+    -- LSP
+    use { 'neovim/nvim-lspconfig' }
+    use { 'williamboman/mason-lspconfig.nvim' }
+    use { 
+      'williamboman/mason.nvim',
+      config = function()
+        require('config.mason').setup()
       end
     }
 
@@ -80,7 +116,7 @@ function M.setup()
     use { 
       'folke/which-key.nvim',
       config = function()
-	require('config.whichkey').setup ()
+	      require('config.whichkey').setup()
       end
     }
 

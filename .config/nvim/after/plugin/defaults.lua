@@ -7,20 +7,44 @@ api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 g.mapleader = " "
 g.maplocalleader = " "
 
-opt.termguicolors = true -- Enable colors in terminal
+opt.laststatus = 3
+opt.showmode = false
+opt.clipboard = 'unnamedplus'
+opt.cursorline = true
+
+-- Indenting
+opt.expandtab = true
+opt.shiftwidth = 2
+opt.smartindent = true
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.breakindent = true
+
+opt.fillchars = { eob = " " }
+opt.ignorecase = true
+opt.smartcase = true
+opt.mouse = 'a'
+
+-- Numbers
+opt.number = true
+opt.numberwidth = 2
+opt.ruler = false
+opt.relativenumber = true
+
+-- disable nvim intro
+opt.shortmess:append 'sI'
+
+opt.signcolumn = 'yes'
+opt.splitbelow = true
+opt.splitright = true
+opt.termguicolors = true
+opt.timeoutlen = 400
+opt.undofile = true
+
+-- interval for writing swap file to disk, also used by gitsigns
+opt.updatetime = 250
+
 opt.hlsearch = true --Set highlight on search
-opt.number = true --Make line numbers default
-opt.relativenumber = true --Make relative number default
-opt.mouse = "a" --Enable mouse mode
-opt.breakindent = true --Enable break indent
-opt.undofile = true --Save undo history
-opt.ignorecase = true --Case insensitive searching unless /C or capital in search
-opt.smartcase = true -- Smart case
-opt.updatetime = 250 --Decrease update time
-opt.signcolumn = "yes" -- Always show sign column
-opt.clipboard = "unnamedplus" -- Access system clipboard
-opt.timeoutlen = 300 --	Time in milliseconds to wait for a mapped sequence to complete.
-opt.showmode = false -- Do not need to show the mode. We use the statusline instead.
 
 -- Highlight on yank
 vim.cmd [[
@@ -38,3 +62,28 @@ opt.path:append "**"
 opt.wildignorecase = true
 opt.wildignore:append "**/node_modules/*"
 opt.wildignore:append "**/.git/*"
+
+local default_plugins = {
+  '2html_plugin',
+  'getscript',
+  'getscriptPlugin',
+  'gzip',
+  'logipat',
+  'netrw',
+  'netrwPlugin',
+  'netrwSettings',
+  'netrwFileHandlers',
+  'matchit',
+  'matchparen',
+  'tar',
+  'tarPlugin',
+  'rrhelper',
+  'vimball',
+  'vimballPlugin',
+  'zip',
+  'zipPlugin',
+}
+
+for _, plugin in pairs(default_plugins) do
+  g['loaded_' .. plugin] = 1
+end
