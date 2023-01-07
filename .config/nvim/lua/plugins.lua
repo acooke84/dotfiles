@@ -103,13 +103,15 @@ function M.setup()
     }
 
     -- LSP
-    use { 'neovim/nvim-lspconfig' }
-    use { 'williamboman/mason-lspconfig.nvim' }
     use { 
-      'williamboman/mason.nvim',
+      'neovim/nvim-lspconfig',
       config = function()
-        require('config.mason').setup()
-      end
+        require('config.lsp').setup()
+      end,
+      requires = {
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim'
+      }
     }
 
     -- Whichkey
