@@ -75,7 +75,7 @@ function M.setup()
       end,
       disable = true,
     }
-    
+
     use {
       'nvim-lualine/lualine.nvim',
       config = function()
@@ -89,8 +89,8 @@ function M.setup()
       config = function()
         require('config.bufferline').setup()
       end,
-      branch = "main",
-      event = "BufWinEnter",
+      branch = 'main',
+      event = 'BufWinEnter',
       disable = false,
     }
 
@@ -102,8 +102,20 @@ function M.setup()
       end
     }
 
+    -- Treesitter
+    use {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate',
+      config = function()
+        require('config.treesitter').setup()
+      end,
+      requires = {
+        { 'nvim-treesitter/nvim-treesitter-textobjects', event = 'BufReadPre' }, 
+      }
+    }
+
     -- LSP
-    use { 
+    use {
       'neovim/nvim-lspconfig',
       config = function()
         require('config.lsp').setup()
@@ -114,8 +126,23 @@ function M.setup()
       }
     }
 
+    -- autopairs
+    use {
+      'windwp/nvim-autopairs',
+      config = function()
+        require('nvim-autopairs').setup()
+      end,
+    }
+
+    use {
+      'windwp/nvim-ts-autotag',
+      config = function()
+        require('nvim-ts-autotag').setup()
+      end
+    }
+
     -- Whichkey
-    use { 
+    use {
       'folke/which-key.nvim',
       config = function()
 	      require('config.whichkey').setup()
