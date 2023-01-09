@@ -126,6 +126,31 @@ function M.setup()
       }
     }
 
+    -- Completion
+    use {
+      'hrsh7th/nvim-cmp',
+      event = 'InsertEnter',
+      opt = true,
+      config = function()
+        require('config.cmp').setup()
+      end,
+      requires = {
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-cmdline',
+        'ray-x/cmp-treesitter',
+        'saadparwaiz1/cmp_luasnip',
+        {
+          'L3MON4D3/LuaSnip',
+          config = function()
+            require('config.snip').setup()
+          end,
+        },
+        { 'onsails/lspkind-nvim', module = { 'lspkind' } },
+      }
+    }
+
     -- autopairs
     use {
       'windwp/nvim-autopairs',
@@ -133,7 +158,6 @@ function M.setup()
         require('nvim-autopairs').setup()
       end,
     }
-
     use {
       'windwp/nvim-ts-autotag',
       config = function()
