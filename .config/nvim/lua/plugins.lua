@@ -45,12 +45,19 @@ function M.setup()
     use { 'nvim-lua/plenary.nvim', module = 'plenary' }
 
     -- Colorscheme
-    use { 
+    use {
       'sainnhe/gruvbox-material',
       config = function()
 	      vim.cmd 'colorscheme gruvbox-material'
       end,
-      enable = true,
+      disable = true,
+    }
+    use {
+      'folke/tokyonight.nvim',
+      config = function()
+        vim.cmd.colorscheme[[tokyonight]]
+      end,
+      disable = false,
     }
 
     -- UI

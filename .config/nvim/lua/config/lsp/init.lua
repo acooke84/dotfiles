@@ -5,6 +5,7 @@ local servers = {
   pyright = {},
   sumneko_lua = {},
   tsserver = {},
+  clangd = {},
 }
 
 M.on_attach = function(client, bufnr) 
