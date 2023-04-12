@@ -64,7 +64,9 @@ function M.setup()
         },
       },
     },
-    extensions_list = {  },
+    extensions_list = {
+      "file_browser",
+    },
   }
 
   telescope.setup(options)

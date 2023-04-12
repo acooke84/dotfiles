@@ -63,11 +63,13 @@ function M.setup()
       name = "File",
       b = { "<cmd>Telescope buffers<cr>", "Buffers" },
       c = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Search current buffer" },
-      g = { "<cmd>Telescope live_grep<cr>", "Live grep" },
+      g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
       h = { "<cmd>Telescope help_tags<cr>", "Help" },
-      f = { "<cmd>Telescope find_files<cr>", "Find files" },
-      n = { "<cmd>ene <BAR> startinsert <cr>", "New file" },
+      f = { "<cmd>Telescope find_files<cr>", "Find Files" },
+      n = { "<cmd>ene <BAR> startinsert <cr>", "New File" },
+      r = { "<cmd>lua require'telescope'.extensions.file_browser.file_browser()<cr>", "File Browser" },
       t = { "<cmd>Telescope<cr>", "Telescope" },
+      e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     },
 
     t = {

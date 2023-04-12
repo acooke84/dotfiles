@@ -45,20 +45,8 @@ function M.setup()
     use { 'nvim-lua/plenary.nvim', module = 'plenary' }
 
     -- Colorscheme
-    use {
-      'sainnhe/gruvbox-material',
-      config = function()
-	      vim.cmd 'colorscheme gruvbox-material'
-      end,
-      disable = true,
-    }
-    use {
-      'folke/tokyonight.nvim',
-      config = function()
-        vim.cmd.colorscheme[[tokyonight]]
-      end,
-      disable = false,
-    }
+    use { 'ellisonleao/gruvbox.nvim', }
+    use { 'folke/tokyonight.nvim', }
 
     -- UI
     use {
@@ -73,14 +61,6 @@ function M.setup()
       config = function()
         require('config.alpha').setup()
       end
-    }
-
-    use {
-      '~/Workspace/stabline.nvim',
-      config = function()
-        require('stabline').setup()
-      end,
-      disable = true,
     }
 
     use {
@@ -101,12 +81,26 @@ function M.setup()
       disable = false,
     }
 
+    -- nvim-tree
+    use {
+      "nvim-tree/nvim-tree.lua",
+      opt = true,
+      cmd = { "NvimTreeToggle", "NvimTreeClose" },
+      config = function()
+        require("config.nvimtree").setup()
+      end,
+    }
+
     -- Telescope
     use {
       'nvim-telescope/telescope.nvim',
+      event = { "VimEnter" },
       config = function()
 	      require('config.telescope').setup()
-      end
+      end,
+      requires = {
+        { 'nvim-telescope/telescope-file-browser.nvim' },
+      }
     }
 
     -- Treesitter
@@ -117,7 +111,7 @@ function M.setup()
         require('config.treesitter').setup()
       end,
       requires = {
-        { 'nvim-treesitter/nvim-treesitter-textobjects', event = 'BufReadPre' }, 
+        { 'nvim-treesitter/nvim-treesitter-textobjects', event = 'BufReadPre' },
       }
     }
 
