@@ -55,14 +55,12 @@ function M.setup()
 	      require('nvim-web-devicons').setup { default = true }
       end,
     }
-
     use {
       'goolord/alpha-nvim',
       config = function()
         require('config.alpha').setup()
       end
     }
-
     use {
       'nvim-lualine/lualine.nvim',
       config = function()
@@ -70,7 +68,6 @@ function M.setup()
       end,
       disable = false,
     }
-
     use {
       'akinsho/bufferline.nvim',
       config = function()
@@ -79,6 +76,77 @@ function M.setup()
       branch = 'main',
       event = 'BufWinEnter',
       disable = false,
+    }
+    use {
+      'levouh/tint.nvim',
+      config = function()
+        require('tint').setup()
+      end,
+    }
+
+    -- Markdown
+    use {
+      'iamcco/markdown-preview.nvim',
+      opt = true,
+      run = function()
+        vim.fn["mkdp#util#install"]()
+      end,
+      ft = 'markdown',
+      cmd = { 'MarkdownPreview' },
+    }
+    use {
+      'jakewvincent/mkdnflow.nvim',
+      config = function()
+        require('mkdnflow').setup {}
+      end,
+      ft = 'markdown',
+    }
+    use {
+      'nvim-neorg/neorg',
+      config = function()
+        require('neorg').setup {
+          load = {
+            ['core.defaults'] = {},
+            ['core.presenter'] = {
+              config = {
+                zen_mode = 'truezen',
+              }
+            }
+          }
+        }
+      end,
+      ft = 'norg',
+      require = { 'nvim-lua/plenary.nvim', 'Pocco81/TrueZen.nvim' },
+      disable = true,
+    }
+
+    -- Jumps
+    use {
+      'ggandor/leap.nvim',
+      keys = { 's', 'S', },
+      config = function()
+        local leap = require('leap')
+        leap.add_default_mappings()
+      end,
+      disable = false,
+    }
+    use {
+      'abecodes/tabout.nvim',
+      after = { 'nvim-cmp' },
+      config = function()
+        require('tabout').setup {
+          completion = false,
+          ignore_beginning = true,
+        }
+      end,
+    }
+
+    -- Trouble
+    use {
+      'folke/trouble.nvim',
+      config = function()
+        require('trouble').setup()
+      end
     }
 
     -- nvim-tree
