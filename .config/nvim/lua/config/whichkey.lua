@@ -74,7 +74,9 @@ function M.setup()
 
     t = {
       name = "Tabs",
-      n = { "<cmd>tabnew<cr>", "New Tab" },
+      a = { "<cmd>tabnew<cr>", "Add Tab" },
+      n = { "<cmd>tabnext<cr>", "Tab Next" },
+      p = { "<cmd>tabprev<cr>", "Tab Previous" }
     },
   }
 

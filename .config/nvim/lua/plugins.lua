@@ -47,6 +47,7 @@ function M.setup()
     -- Colorscheme
     use { 'ellisonleao/gruvbox.nvim', }
     use { 'folke/tokyonight.nvim', }
+    use { 'catppuccin/nvim', as = 'catppuccin', }
 
     -- UI
     use {
