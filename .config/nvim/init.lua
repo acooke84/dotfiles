@@ -1,3 +1,3 @@
-require("utils")
-require("plugins").setup()
-require("theme").setup()
+require("defaults")
+require("keymaps")
+require("lazy_init")

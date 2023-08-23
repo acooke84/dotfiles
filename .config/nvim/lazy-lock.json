@@ -1,0 +1,5 @@
+{
+  "gruvbox.nvim": { "branch": "main", "commit": "6d409ee8af4e84d2327b4b5856f843b97a85a567" },
+  "lazy.nvim": { "branch": "main", "commit": "3ad55ae678876516156cca2f361c51f7952a924b" },
+  "plenary.nvim": { "branch": "master", "commit": "267282a9ce242bbb0c5dc31445b6d353bed978bb" }
+}

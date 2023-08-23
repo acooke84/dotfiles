@@ -1,0 +1,34 @@
+local opt = vim.opt
+
+opt.autoindent = true
+opt.breakindent = true
+opt.clipboard = "unnamedplus"
+opt.cmdheight = 0
+opt.completeopt = "menuone,noselect"
+opt.confirm = true
+opt.cursorline = true
+opt.expandtab = true
+opt.foldcolumn = "1"
+opt.foldenable = true
+opt.hlsearch = false
+opt.ignorecase = true
+opt.laststatus = 3
+opt.mouse = "a"
+opt.number = true
+opt.relativenumber = true
+opt.shiftwidth = 2
+opt.signcolumn = "yes"
+opt.smartcase = true
+opt.smartindent = true
+opt.splitbelow = true
+opt.splitkeep = "screen"
+opt.splitright = true
+opt.tabstop = 2
+opt.termguicolors = true
+opt.timeoutlen = 300
+opt.title = true
+opt.undofile = true
+opt.updatetime = 200
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = ","
