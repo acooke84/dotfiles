@@ -1,13 +1,10 @@
 local keymap = vim.keymap.set
+local default_opts = { noremap = true, silent = true }
 
-keymap("i", "jk", "<esc")
-
--- Better viewing
-keymap("n", "n", "nzzzv")
-keymap("n", "N", "Nzzzv")
-keymap("n", "g,", "g,zvzz")
-keymap("n", "g;", "g;zvzz")
+-- Faster esc from insert mode
+keymap("i", "jk", "<esc>", default_opts)
+keymap("t", "jk", "<C-\\><C-n>", default_opts)
 
 -- Better indent
-keymap("v", "<", "<gv")
-keymap("v", ">", ">gv")
+keymap("v", "<", "<gv", default_opts)
+keymap("v", ">", ">gv", default_opts)
